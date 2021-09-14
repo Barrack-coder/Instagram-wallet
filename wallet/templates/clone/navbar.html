@@ -1,75 +1,66 @@
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-        <!-- Toggle button -->
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-
-        <!-- Collapsible wrapper -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Navbar brand -->
-            <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                <i class="fas fa-lg fa-home"></i>
+<!-- Navbar-->
+<nav class="border navbar navbar-expand-lg navbar-light bg-light sticky-top" style="font-family: 'Courgette', cursive; height:3rem; width:100%; padding-right:13rem">
+    <div class="container justify-content-between" style="margin-left:10rem;">
+        <!-- Left elements -->
+        <div class="d-flex">
+            <!-- Brand -->
+            <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
+                <p class="m-1" style="font-size:1.8rem; font-family: 'Shadows Into Light', cursive;"> <i class="fab fa-instagram" style="font-size:2rem; color: rgb(105, 15, 93);"></i> INSTA MINDS<i style="font-size:1rem; color: rgb(88, 19, 79);" class="fab fa-instagram"></i></p>
             </a>
-            <!-- Left links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
-                </li>
-            </ul>
-            <!-- Left links -->
         </div>
-        <!-- Collapsible wrapper -->
-
+        <!-- Left elements -->
+        <!-- center- elements -->
+        <div>
+            <!-- Search form -->
+            <form class="input-group w-auto my-auto d-none d-sm-flex">
+                <div class="form-outline my-2">
+                    <input type="search" style="min-width: 125px; " id="form2Example1" autocomplete="off" class="form-control rounded" />
+                    <label class="form-label" for="form2Example1"> <i class="fas fa-search"> <span style="font-family: 'Shadows Into Light', cursive;" >Search</span> </i></label>
+                </div>
+            </form>
+        </div>
+        <!-- center- elements -->
         <!-- Right elements -->
-        <div class="d-flex align-items-center">
-            <!-- Icon -->
-            <a class="text-reset me-3" href="#">
-                <i class="far fa-lg fa-heart"></i>
-            </a>
+        <ul class="navbar-nav flex-row">
+            <li class="nav-item me-3 me-lg-1 active">
+                <a class="nav-link" href="{% url 'home' %}">
+                    <span><i class="fas fa-home fa-lg"></i></span>
+                </a>
+            </li>
+            <li class="nav-item me-3 me-lg-1 active">
+                <a class="nav-link" href="#">
+                    <span><i class="far fa-comment fa-lg"></i></span>
+                </a>
+            </li>
 
-            <!-- Notifications -->
-            <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                <i class="fas fa-lg fa-bell"></i>
-                <span class="badge rounded-pill badge-notification bg-danger">1</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                <li>
-                    <a class="dropdown-item" href="#">Some news</a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="#">Another news</a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-            </ul>
-
+            <li class="nav-item me-3 me-lg-1 active">
+                <a class="nav-link" href="#">
+                    <span><i class="far fa-compass fa-lg"></i></span>
+                </a>
+            </li>
+            <li class="nav-item me-3 me-lg-1 active">
+                <a class="nav-link" href="#">
+                    <span><i class="far fa-heart fa-lg"></i></span>
+                </a>
+            </li>
             <!-- Avatar -->
-            <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25" alt="" loading="lazy" />
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                <li>
-                    <a class="dropdown-item" href="#">My profile</a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="#">Settings</a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href="#">Logout</a>
-                </li>
-            </ul>
-        </div>
-        <!-- Right elements -->
+            <li class="nav-item me-3 dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="dropdown-toggle" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                    <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25" alt="" loading="lazy" />
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li>
+                        <a class="dropdown-item" href="#">My profile</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Settings</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="#">Logout</a>
+                    </li>
+                </ul>
+    </div>
+    <!-- Right elements -->
     </div>
     <!-- Container wrapper -->
 </nav>
