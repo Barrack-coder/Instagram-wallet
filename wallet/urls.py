@@ -8,8 +8,8 @@ from wallet import views
 urlpatterns = [
      path('', views.home, name='home'),
      path('signin', views.signin, name='signin'),
-     path('signup', views.signin, name='signup'),
      path('', views.upload, name='upload'),
-     path('',PostListView.as_view(), name='post_list'),
+     path('signup', views.signin, name='signup'),
+     path('post_list',PostListView.as_view(), name='post_list'),
     
 ]

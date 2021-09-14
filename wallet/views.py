@@ -16,9 +16,14 @@ def home(request):
 def upload(request):
     return render(request, 'clone/index.html')
 
+def post_list(request):
+    return render(request, 'clone/post_list.html')
+
 def signin(request):
     return render(request, 'login/signin.html')
 
-def signin(request):
+def signup(request):
     return render(request, 'login/signup.html')
+
+
         
