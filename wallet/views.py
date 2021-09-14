@@ -15,4 +15,7 @@ def home(request):
 
 def upload(request):
     return render(request, 'clone/index.html')
+
+def signin(request):
+    return render(request, 'login/signin.html')
         
