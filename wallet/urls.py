@@ -9,7 +9,7 @@ urlpatterns = [
      path('', views.home, name='home'),
      path('signin', views.signin, name='signin'),
      path('', views.upload, name='upload'),
-     path('signup', views.signin, name='signup'),
+     path('signup', views.signup, name='signup'),
      path('post_list',PostListView.as_view(), name='post_list'),
     
 ]
