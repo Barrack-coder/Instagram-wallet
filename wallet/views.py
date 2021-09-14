@@ -18,4 +18,7 @@ def upload(request):
 
 def signin(request):
     return render(request, 'login/signin.html')
+
+def signin(request):
+    return render(request, 'login/signup.html')
         
