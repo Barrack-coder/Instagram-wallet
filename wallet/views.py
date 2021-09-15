@@ -16,7 +16,7 @@ def index(request):
     photo = photos.objects.all()
     # adding context 
     ctx = {'photo':photo}
-    return render(request, 'index.html', ctx)
+    return render(request, 'clone/index.html', ctx)
 
 def home(request):
     return render(request, 'clone/home.html')
