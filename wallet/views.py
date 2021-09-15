@@ -33,5 +33,8 @@ def signin(request):
 def signup(request):
     return render(request, 'login/signup.html')
 
+def profile(request):
+    return render(request, 'login/profile.html')
+
 
         

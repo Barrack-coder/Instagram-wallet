@@ -15,5 +15,6 @@ urlpatterns = [
      path('', views.upload, name='upload'),
      path('signup', views.signup, name='signup'),
      path('post_list',PostListView.as_view(), name='post_list'),
+     path('profile', views.profile, name='profile'),
     
 ]
