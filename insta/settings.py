@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 
 from pathlib import Path
+from decouple import config
 import os
 import cloudinary
 import cloudinary.uploader
@@ -83,8 +84,11 @@ WSGI_APPLICATION = 'insta.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'insta',
+        'USER': 'postgres',
+        'PASSWORD': config('PASSWORD'),
+        'HOST':'localhost',
     }
 }
 
