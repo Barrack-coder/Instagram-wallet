@@ -3,12 +3,20 @@ from .models import post
 from django.views.generic import (
     ListView
 )
+from .models import photos
 
 # Create your views here.
 class PostListView(ListView):
     template_name = "clone/post_list.html"
     queryset = post.objects.all()
     context_object_name = 'posts'
+    
+def index(request):
+    # imports photos and save it in database
+    photo = photos.objects.all()
+    # adding context 
+    ctx = {'photo':photo}
+    return render(request, 'index.html', ctx)
 
 def home(request):
     return render(request, 'clone/home.html')
