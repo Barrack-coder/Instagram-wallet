@@ -9,6 +9,7 @@ from wallet import views
 urlpatterns = [
      
      path('admin/', admin.site.urls),
+     path('index', views.index, name='index'),
      path('', views.home, name='home'),
      path('signin', views.signin, name='signin'),
      path('', views.upload, name='upload'),
