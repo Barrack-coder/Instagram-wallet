@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import post
-from .models import photos
+from .models import Post
+from .models import Profile
 
 # Register your models here.
 
-admin.site.register(photos)
-admin.site.register(post)
+admin.site.register(Profile)
+admin.site.register(Post)
 

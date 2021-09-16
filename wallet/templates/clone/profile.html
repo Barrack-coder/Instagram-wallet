@@ -1,4 +1,4 @@
-{% extends 'clone/base.html' %} {% block content %}
+{% extends 'clone/base.html' %} {% include 'clone/navbar.html' %} {% block content %}
 
 <div class="container">
     <ul class="row mt-3">
@@ -42,9 +42,9 @@
                     </div>
                     <div class="mt-4 ms-2">
 
-                        <div class="fas-group" style="width: 10%; position: relative; top:-1.7rem;">
-                            <ul class="dropdown-menu dropdown-menu-end dropdown" style="margin:2rem 5rem;">
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-user-minus"><span class="ms-2">Unfollow</span> </i></a></li>
+                        <div class="fas-group" style="width: 11%; position: relative; top:-1.8rem;">
+                            <ul class="dropdown-menu dropdown-menu-end dropdown" style="margin:2rem 6rem;">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user-minus"><span class="my-2">Unfollow</span> </i></a></li>
                                 <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item" href=""><i class="far fa-share-square me-1"></i>Logout</a></li>
