@@ -1,31 +1,97 @@
 {% extends 'clone/base.html' %}
-{% load static %}
-{% block content %} 
-<div class="container d-flex justify-content-center my-5">
-    <div style="font-family: 'Shadows Into Light', cursive; font-size:2rem">
-        <div class="border" style="height: 450px; width:500px">
-            
-            <h4 class="text-center my-1" style="font-family: 'Shadows Into Light', cursive; font-size:3rem">Upload </h4>
-            <form class="px-4 py-2" method="POST" action="" enctype="multipart/form-data">
-                {% csrf_token %}
-                
-                <!-- file input -->
-                <div class="mb-3">
-                    <label class="form-label" for="customFile">Upload Image</label>
-                    <input type="file"  name="image" required  class="form-control" id="customFile" />
-                </div>
-                <!-- message input -->
-                <div class="form-outline">
-                    <textarea name="captions" class="form-control" id="textAreaExample" rows="4"></textarea>
-                    <label class="form-label" for="textAreaExample">Caption</label>
-                </div>
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mt-3">Create post</button>
-                
-            </form>
+{% load cloudinary %}      
+{% cloudinary photo.image format="jpg" width=120 height=80 crop="fill" %}
+{% block content %}
+<div class="container">
+  <div class="d-flex">
+    <div class="">
+      <div style="margin-left:5rem; width:100%; border-radius:8px; font-family: 'Courgette', cursive;">
+        {% if messages %}
+          <div class="messages me-5">
+            {% for message in messages %}
+              <h4 {% if message.post_listtags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</h4>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      
+      {% for post in posts %}
+        <div class="border my-2" style="margin-left:5rem; width:36rem; border-radius:8px;">
 
+          <!-- Navbar -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-white" style="height: 10vh;;">
+            <div class="container-fluid">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarExample01"
+                aria-controls="navbarExample01"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+              <i class="fas fa-bars"></i>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarExample01" style=" font-family: 'Berkshire Swash', cursive; font-size:2rem;">
+                <ul class="navbar-nav me-auto my-3" style="width: 100%; position: relative; top:0.8rem;">
+                  <li class="nav-item active" style="width: 10%;">
+                    <a class="nav-link" aria-current="page" href="#" style="width: 100%;"> 
+                      <img
+                      src="https://mdbootstrap.com/img/new/standard/city/047.jpg"
+                      class="image-3 img-fluid"
+                      alt=""/>
+                    </a>
+                    
+                  </li>
+                 
+                  <div class="d-flex" style="width: 90%;">
+                    <div class="nav-item" style="width: 90%;">
+                      <a class="nav-link"  href="#">{{ post.author.username }}</a>
+                    </div>
+                    <div class="fas-group" style="width: 10%; position: relative; top:-1.7rem;">
+                      <i 
+                      type="fas"
+                      data-mdb-toggle="dropdown"
+                      data-mdb-display="static"
+                      aria-expanded="false"
+                      class="fa-ellipsis-h">
+                      <i class="fas fa-ellipsis-h fa-lg"></i>
+                      </i>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown"  style="margin:1rem 12rem;">
+                        <li><a class="dropdown-item" href="{%  url 'viewImage' post.id %}"><i class="fas fa-expand"><span class="ms-2">Go to post</span></i></a></li>
+                        <hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user-minus"><span class="ms-2">Unfollow</span> </i></a></li>
+                        <hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'home' %}"><i class="fas fa-times"><span class="ms-2">Cancel</span> </i></a></li>
+                      </ul>
+                    </div>
+                    
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </nav>
+          <!-- Navbar -->
+          <img
+            src="{{ post.image.url }}"
+            class="img-fluid"
+            alt="..."
+          />
+          
+          <div class="card-body" style="font-family: 'Courgette', cursive;">
+            <p class="card-text">
+              {{ post.caption }}
+            </p>
+          </div>
         </div>
+      {% endfor %}
+     
+
     </div>
+    <div class="ms-2">
+     
+    </div>
+  </div>
 </div>
 
 {% endblock %}

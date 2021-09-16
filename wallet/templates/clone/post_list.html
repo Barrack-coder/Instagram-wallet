@@ -1,14 +1,29 @@
 {% extends 'clone/base.html' %} {% load static %} {% block content %}
+<div class="container d-flex justify-content-center my-5">
+    <div style="font-family: 'Shadows Into Light', cursive; font-size:2rem">
+        <div class="border" style="height: 450px; width:500px">
 
+            <h4 class="text-center my-1" style="font-family: 'Shadows Into Light', cursive; font-size:3rem">Upload </h4>
+            <form class="px-4 py-2" method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
 
-<div class="container">
-    {% for post in posts %}
-    <p>{{post.author}}</p>
-    <p>{{post.caption}}</p>
+                <!-- file input -->
+                <div class="mb-3">
+                    <label class="form-label" for="customFile">Upload Image</label>
+                    <input type="file" name="image" required class="form-control" id="customFile" />
+                </div>
+                <!-- message input -->
+                <div class="form-outline">
+                    <textarea name="captions" class="form-control" id="textAreaExample" rows="4"></textarea>
+                    <label class="form-label" for="textAreaExample">Caption</label>
+                </div>
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mt-3">Create post</button>
 
-    {% endfor %}
+            </form>
+
+        </div>
+    </div>
 </div>
-
-
 
 {% endblock %}

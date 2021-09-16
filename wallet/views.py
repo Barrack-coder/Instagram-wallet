@@ -18,8 +18,6 @@ def index(request):
     ctx = {'photo':photo}
     return render(request, 'clone/index.html', ctx)
 
-def home(request):
-    return render(request, 'clone/home.html')
 
 def upload(request):
     return render(request, 'clone/index.html')
