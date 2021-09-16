@@ -27,14 +27,16 @@ def upload(request):
 def post_list(request):
     return render(request, 'clone/post_list.html')
 
+def profile(request):
+    return render(request, 'clone/profile.html')
+
 def signin(request):
     return render(request, 'login/signin.html')
 
 def signup(request):
     return render(request, 'login/signup.html')
 
-def profile(request):
-    return render(request, 'login/profile.html')
+
 
 
         
