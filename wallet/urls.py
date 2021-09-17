@@ -11,7 +11,7 @@ urlpatterns = [
      
      path('index', views.index, name='index'),
      path('', views.signin, name='signin'),
-     path('signup', views.signup, name='signup'),
+     path('register', views.register, name='register'),
      path('account', views.profile, name='profile'),
      path('post_list',PostListView.as_view(), name='post_list'),   
 ]

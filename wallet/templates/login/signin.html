@@ -3,6 +3,13 @@
 {% block content %}
 <div class="container  justify-content-center">
   <div class="row my-5" style="font-family: 'Amatic SC', cursive;">
+   {% if messages %}
+      <div class="messages me-5">
+          {% for message in messages %}
+          <h4 {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</h4>
+          {% endfor %}
+      </div>
+    {% endif %}
     <div class="col-md-3">
       <div class="col-md">
         <img  src="{% static 'images/1597748.png' %}"  class="img-fluid rounded" alt="example"/>
@@ -44,7 +51,7 @@
 
         </div>
         <div class="border my-2 text-center pt-2" style="width: 350px; height:50px;">
-          <small > sign up here ASAP!<a href=""> Sign up</a></small>
+          <small > sign up here ASAP!<a href="{% url 'register' %}"> Sign up</a></small>
         </div>
       </div>
       <div class="col-md-"></div>

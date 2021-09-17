@@ -20,7 +20,7 @@
                 </div>
             </form>
         </div>
-        <!-- center- elements -->
+
         <!-- Right elements -->
         <ul class="navbar-nav flex-row">
             <li class="nav-item me-3 me-lg-1 active">
@@ -50,6 +50,7 @@
                     <img src="" class="rounded-circle" height="25" alt="" loading="lazy" />
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    {% if user is authenticated %} {% else %}
                     <li>
                         <a class="dropdown-item" href="{% url 'profile' %}">My profile</a>
                     </li>
@@ -59,6 +60,7 @@
                     <li>
                         <a class="dropdown-item" href="">Logout</a>
                     </li>
+                    {% endif %}
                 </ul>
     </div>
     <!-- Right elements -->

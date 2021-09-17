@@ -1,3 +1,4 @@
+from django.core.checks import messages
 from django.http import request
 from django.shortcuts import render,redirect
 from django.views.generic import (
@@ -7,6 +8,7 @@ from .models import Post,Profile
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User as Users
+from django.contrib.auth.forms import AuthenticationForm
 
 
 # Create your views here.
@@ -31,17 +33,18 @@ def post_list(request):
         return render(request, 'clone/post_list.html')
 
 def profile(request):
-    profile = Profile.object.all()
-    posts = Post.object.all()
+    profile = Profile.objects.all()
     if request.method == 'POST':
-        photo= request.FILES['photo']
-        gender= request.POST['gender']
-        bio = request.POST['bio']
-        profile= Profile(photo=photo, bio=bio, gender=gender)
+        username= request.POST['username']
+        caption= request.POST['caption']
+        profile=profile(username=username,caption=caption)
         profile.save()
-        return redirect("profile")
-    context={'profile':Profile, 'post':posts}
-    return render(request, 'clone/profile.html')
+            
+    else:
+        return render(request, 'clone/profile.html')
+    
+   
+    
 
 def signin(request):
     if request.method == 'POST':
@@ -50,22 +53,23 @@ def signin(request):
             user = authenticate(email=email, password=password)
             if user is not None:
                 login(request, user)
-                return redirect(post_list)
+                messages.add_message(request, messages.SUCCESS, "Successfully signed in!")
+                return redirect(index)
     return render(request, 'login/signin.html')
-
-
-def signup(request):
+  
+def register(request):
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         confirm_password = request.POST['confirm_password']
         if password == confirm_password:
-            user = Users(username=username, email=email, password=make_password(password))
+            user = Users(username=username, email=email, password=password)
             user.save()
-        return render(request, 'login/signin.html')     
-    else:
-        print("wrong password")
+            messages.add_message(request, messages.SUCCESS, "You have successfully registered!")
+            return redirect(signin)
+        return render(request, 'login/signup.html')     
+    
         
     
 
